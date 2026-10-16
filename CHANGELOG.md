@@ -2,6 +2,24 @@
 
 Public Beta releases. Application source code remains private.
 
+## 0.12.37-beta.17-connectivity
+
+2026-10-16 · Beta 17 · sequence 64
+
+Windows host information and a direct network workspace entry.
+
+- Windows host information uses local Win32 and .NET APIs. An unresponsive WMI CPU provider no longer blocks the complete overview.
+- An unavailable CPU sample remains unknown and cannot produce a healthy resource-check result.
+- Host information errors are labeled separately from endpoint connection state.
+- Network topology and connectivity is available beside Quick navigation in the top bar, with a current-page indicator.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+
 ## 0.12.37-beta.16-updater — 2026-10-16
 
 Signed in-app updates, safe restart and rollback.

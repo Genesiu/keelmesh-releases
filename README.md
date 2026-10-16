@@ -20,6 +20,10 @@ This repository contains documentation and downloadable binaries. The applicatio
 | `manifest.json`, `SHA256SUMS` | Version, platform, signing status, sizes and checksum metadata. |
 | `README.txt`, `RELEASE_NOTES.*.md` | Installation, rollback and version notes. |
 
+## Latest release
+
+Beta 17 fixes Windows host information when WMI is unresponsive and adds Network topology and connectivity beside Quick navigation. Host information errors are shown separately from connection state. No endpoint reinstall is needed.
+
 ## Updates
 
 Beta 16 adds Settings → Software updates: automatic checks after unlock and every 6 hours, background downloads, installation after active work finishes, and rollback. Devices, Keychain identities and AI grant scope/permissions/expiry/revocation are retained. Beta 13 and older need one manual DMG upgrade to obtain this feature. An existing CLI is updated together with the App; absence of a CLI does not silently install a system command.
