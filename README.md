@@ -22,7 +22,7 @@ This repository contains documentation and downloadable binaries. The applicatio
 
 ## Latest release
 
-Beta 18 reduces delays as signed audit history grows. Every operation still rehashes historical bytes and verifies new records; tampering and authorization errors remain fail-closed. It includes Beta 17’s Windows inventory correction and top-bar network shortcut.
+Beta 19 restores the last successful host information after restarting the console, including OS filters, IP addresses and resource snapshots. Historical values show their original fetch time; presence is checked separately. Opening a device refreshes cached data, and refresh failures preserve previous values. It adds no automatic fleet inventory or new permissions.
 
 ## Updates
 
