@@ -1,6 +1,6 @@
-# Keelmesh downloads
+# Keelark downloads
 
-Official Beta downloads and release notes for Keelmesh Ops.
+Official Beta downloads and release notes for Keelark Ops (formerly Keelmesh).
 
 - [Website](https://keelmesh.com/) · [中文官网](https://keelmesh.com/zh/)
 - [Latest Beta downloads](https://github.com/Genesiu/keelmesh-releases/releases)
@@ -22,7 +22,7 @@ This repository contains documentation and downloadable binaries. The applicatio
 
 ## Latest release
 
-Beta 19 restores the last successful host information after restarting the console, including OS filters, IP addresses and resource snapshots. Historical values show their original fetch time; presence is checked separately. Opening a device refreshes cached data, and refresh failures preserve previous values. It adds no automatic fleet inventory or new permissions.
+Beta 20 renames the product to Keelark. The console, website and AI handoff text use the new name. New installs use Keelark.app; existing installations keep their signed update channel, identities, configuration paths, AI grants and CLI commands. It includes Beta 19 host snapshot persistence. The current website domain and release repository URL remain unchanged for compatibility.
 
 ## Updates
 
@@ -30,7 +30,7 @@ Beta 16 adds Settings → Software updates: automatic checks after unlock and ev
 
 ## Platforms
 
-The current public Ops management console is the macOS 12+ universal Beta. A separate Ubuntu 24.04 x64 management preview exists in development but is not published as this Beta. A Windows Ops GUI has not been released. Linux, macOS and Windows **Agents** are remote endpoints, not management consoles. Keelmesh Tunnel/VPN is a separate product preview.
+The current public Ops management console is the macOS 12+ universal Beta. A separate Ubuntu 24.04 x64 management preview exists in development but is not published as this Beta. A Windows Ops GUI has not been released. Linux, macOS and Windows **Agents** are remote endpoints, not management consoles. Keelark Tunnel/VPN is a separate product preview.
 
 This Beta is ad-hoc signed, **not Apple-notarized**, and does not claim completed independent security certification. In-app replacement requires write access to the existing product locations.
 

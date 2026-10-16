@@ -2,6 +2,26 @@
 
 Public Beta releases. Application source code remains private.
 
+## 0.12.37-beta.20-keelark
+
+2026-10-16 · Beta 20 · sequence 67
+
+Keelmesh is now Keelark.
+
+- The console, website, AI handoff instructions and product family use the Keelark name.
+- New macOS installations use Keelark.app. Existing installations can upgrade through the same signed channel and retain their existing path.
+- Device identities, pairing records, host snapshots and AI grants remain in place. Existing CLI commands and SSH aliases continue to work.
+- Includes Beta 19 host snapshot caching. No endpoint reinstall is required.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelark.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+The existing keelmesh.com domain, release repository, configuration paths, CLI name and protocol identifiers are retained for compatibility.
+
+
 ## 0.12.37-beta.19-host-snapshots
 
 2026-10-16 · Beta 19 · sequence 66
