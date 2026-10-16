@@ -2,7 +2,7 @@
 
 Public Beta releases. Application source code remains private.
 
-## 0.12.37-beta.14-updater — 2026-10-16
+## 0.12.37-beta.15-updater — 2026-10-16
 
 Signed in-app updates, safe restart and rollback.
 
@@ -23,9 +23,9 @@ Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Fini
 
 macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
 
-# Keelmesh Beta 14
+# Keelmesh Beta 15
 
-0.12.37-beta.14-updater · 2026-10-16 · Beta
+0.12.37-beta.15-updater · 2026-10-16 · Beta
 
 软件内检查更新，空闲安装与失败回滚。
 
@@ -47,6 +47,8 @@ Beta 13 及更早版本需手动升级一次 DMG 才能获得检查更新功能�
 macOS 12+ 通用 Beta，临时签名，尚未 Apple 公证。软件内替换需要有权写入已有 App 与 CLI 位置；遇到仍在运行的卡死候选程序不会强杀，需先关闭再恢复。Windows Ops 图形管理端尚未发布；Ubuntu 24.04 x64 仍是单独测试版。
 
 ---
+
+Beta 14 was an internal acceptance build; Beta 15 is the first public release of the updater, including graceful AI response draining.
 
 ## 0.12.37-beta.13-workspace-lifecycle — 2026-10-16
 
