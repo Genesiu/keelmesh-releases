@@ -22,7 +22,7 @@ This repository contains documentation and downloadable binaries. The applicatio
 
 ## Latest release
 
-Beta 17 fixes Windows host information when WMI is unresponsive and adds Network topology and connectivity beside Quick navigation. Host information errors are shown separately from connection state. No endpoint reinstall is needed.
+Beta 18 reduces delays as signed audit history grows. Every operation still rehashes historical bytes and verifies new records; tampering and authorization errors remain fail-closed. It includes Beta 17’s Windows inventory correction and top-bar network shortcut.
 
 ## Updates
 

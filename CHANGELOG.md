@@ -2,6 +2,24 @@
 
 Public Beta releases. Application source code remains private.
 
+## 0.12.37-beta.18-audit-prefix
+
+2026-10-16 · Beta 18 · sequence 65
+
+Faster operations with large audit histories.
+
+- Verified audit history is reread and hashed on every write; unchanged prefixes reuse earlier verification, while new entries are verified individually.
+- Audit tampering, truncation, invalid appends and permission failures still stop operations. Rotation and concurrent writers preserve one signed chain.
+- Fixes execution delays reproduced on a Mac endpoint. The same audit improvement is included in the console, CLI and future endpoint installation packages.
+- Retains the Windows inventory fix and the top-bar network topology shortcut from Beta 17.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+
 ## 0.12.37-beta.17-connectivity
 
 2026-10-16 · Beta 17 · sequence 64
