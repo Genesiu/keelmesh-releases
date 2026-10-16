@@ -1,29 +1,62 @@
 # Changelog
 
-## 0.12.37-beta.19-host-snapshots — 2026-10-16
-
-- Persist successful host inventory locally across console restarts, bound to the exact controller and pairing.
-- Restore OS filters, address search/grouping and previous resource snapshots without fleet-wide remote execution.
-- Label historical values with original timestamps and keep online presence independent.
-- Preserve the last successful snapshot after refresh failure; prune removed or revoked pairings.
-- No changes to encryption, AI scope, permissions, expiry, revocation or idle release.
-
-## 0.12.37-beta.18-audit-prefix — 2026-10-16
-
-- Rehash verified audit prefixes before reuse; verify each new entry and preserve fail-closed tamper checks.
-- Reduce repeated signature verification that delayed endpoint operations.
-- Preserve signed history, rotation, concurrent writers and AI authorization rules.
-- Ship the improvement in console, CLI and future endpoint packages.
-
-## 0.12.37-beta.17-connectivity — 2026-10-16
-
-- Avoid Windows host inventory timeouts caused by WMI CPU queries.
-- Preserve unavailable CPU status in resource checks.
-- Distinguish host-information errors from connection state.
-- Add Network topology and connectivity beside Quick navigation.
-- Preserve device identities and AI authorization scope, permissions, expiry and revocation.
-
 Public Beta releases. Application source code remains private.
+
+## 0.12.37-beta.19-host-snapshots
+
+2026-10-16 · Beta 19 · sequence 66
+
+Keep host information when the console restarts.
+
+- Restore the last successful OS, IP addresses and CPU, memory and disk snapshot on startup. OS filters and address grouping work before connecting.
+- Cards, lists and device details show when values were fetched. Online status is queried separately; cached values do not mean a device is online.
+- Opening a device refreshes cached data. A failed refresh preserves the previous values and displays the failure.
+- No background fleet inventory is added. Existing encryption, AI scope, permissions, three-hour expiry and revocation remain enforced when enabled.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+After the first upgrade, each device needs one successful inventory fetch to populate its cache. No endpoint upgrade is required.
+
+
+## 0.12.37-beta.18-audit-prefix
+
+2026-10-16 · Beta 18 · sequence 65
+
+Faster operations with large audit histories.
+
+- Verified audit history is reread and hashed on every write; unchanged prefixes reuse earlier verification, while new entries are verified individually.
+- Audit tampering, truncation, invalid appends and permission failures still stop operations. Rotation and concurrent writers preserve one signed chain.
+- Fixes execution delays reproduced on a Mac endpoint. The same audit improvement is included in the console, CLI and future endpoint installation packages.
+- Retains the Windows inventory fix and the top-bar network topology shortcut from Beta 17.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+
+## 0.12.37-beta.17-connectivity
+
+2026-10-16 · Beta 17 · sequence 64
+
+Windows host information and a direct network workspace entry.
+
+- Windows host information uses local Win32 and .NET APIs. An unresponsive WMI CPU provider no longer blocks the complete overview.
+- An unavailable CPU sample remains unknown and cannot produce a healthy resource-check result.
+- Host information errors are labeled separately from endpoint connection state.
+- Network topology and connectivity is available beside Quick navigation in the top bar, with a current-page indicator.
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
 
 ## 0.12.37-beta.16-updater — 2026-10-16
 
