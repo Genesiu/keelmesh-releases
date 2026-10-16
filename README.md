@@ -1,20 +1,37 @@
 # Keelmesh downloads
 
-Official binary downloads and release notes for Keelmesh.
+Official Beta downloads and release notes for Keelmesh Ops.
 
-- Website: https://keelmesh.com/
-- 简体中文: https://keelmesh.com/zh/
-- Release notes: https://keelmesh.com/zh/changelog/
-- Current release: https://github.com/Genesiu/keelmesh-releases/releases/tag/v0.12.37-beta.13
+- [Website](https://keelmesh.com/) · [中文官网](https://keelmesh.com/zh/)
+- [Latest Beta downloads](https://github.com/Genesiu/keelmesh-releases/releases)
+- [Release history](https://keelmesh.com/changelog/) · [中文更新日志](https://keelmesh.com/zh/changelog/)
 
-This repository distributes installers and documentation only. The application source code and development history are private. GitHub-generated source archives contain only this download repository’s documentation, not application source code. Third-party components retain their own licenses; notices are included with the application and CLI kit.
+This repository contains documentation and downloadable binaries. The application source repository is private. GitHub automatically offers “Source code” ZIP/tar archives of **this documentation repository**; they contain README and CHANGELOG, not Keelmesh application source.
 
-## Beta 13
+## Which asset should I download?
 
-macOS 12+; universal Apple Silicon and Intel build. New consoles connect on demand and release unused connections after 5 minutes (configurable 1–120 minutes). Existing explicit settings are preserved. Closing a device tab can keep tasks, transfers, terminal sessions and AI calls running.
+| Asset | Purpose |
+|---|---|
+| `macOS-universal.dmg` | macOS Ops management console; Apple Silicon and Intel. Recommended for Mac users. |
+| `macOS-cli.zip` | Matching universal `deepops` CLI, transactional installation utility and notices for AI tools/scripts. |
+| `macOS-update.zip` | Source-free App/CLI kit consumed by the in-app updater; not a separate product installer. |
+| `Keelmesh-*.manifest.json` + `.sig` | Offline release-Root signatures for the complete DMG and CLI kit. |
+| `macos-beta.json` | Signed update-channel envelope. The app verifies it with its built-in public key. |
+| `manifest.json`, `SHA256SUMS` | Version, platform, signing status, sizes and checksum metadata. |
+| `README.txt`, `RELEASE_NOTES.*.md` | Installation, rollback and version notes. |
 
-Artifacts include the universal DMG, compatible CLI kit, SHA-256 checksums and detached release signatures. Verify downloads before installation. Finish active GUI work and quit the app before replacing it; preserve Application Support and Keychain data. The release is ad-hoc signed and is not Apple-notarized. The release signatures are independent of Apple Developer ID and notarization.
+## Updates
 
-AI grants remain optional; when enabled, their device scope, read-only/modification permission, default 3-hour duration, confirmation, expiry and revocation checks remain enforced.
+Beta 14 adds Settings → Software updates: automatic checks after unlock and every 6 hours, background downloads, installation after active work finishes, and rollback. Devices, Keychain identities and AI grant scope/permissions/expiry/revocation are retained. Beta 13 and older need one manual DMG upgrade to obtain this feature. An existing CLI is updated together with the App; absence of a CLI does not silently install a system command.
 
-Product questions and security reports: keelmesh@genesiu.com. Do not send passwords, private keys or authorization codes.
+## Platforms
+
+The current public Ops management console is the macOS 12+ universal Beta. A separate Ubuntu 24.04 x64 management preview exists in development but is not published as this Beta. A Windows Ops GUI has not been released. Linux, macOS and Windows **Agents** are remote endpoints, not management consoles. Keelmesh Tunnel/VPN is a separate product preview.
+
+This Beta is ad-hoc signed, **not Apple-notarized**, and does not claim completed independent security certification. In-app replacement requires write access to the existing product locations.
+
+---
+
+普通 Mac 用户下载 DMG 即可。CLI ZIP 用于 AI 与脚本；update ZIP 由软件内更新器使用。JSON、签名和校验文件用于验证发布包。
+
+本仓库只公开下载包与说明文档，不公开产品主体源码。GitHub 自动生成的“Source code”压缩包是本说明仓库的归档。

@@ -2,6 +2,52 @@
 
 Public Beta releases. Application source code remains private.
 
+## 0.12.37-beta.14-updater — 2026-10-16
+
+Signed in-app updates, safe restart and rollback.
+
+- Software updates in Settings checks after unlock and every 6 hours, and notifies you when a newer signed release is available.
+- Download and verification run in the background. Installation waits for terminals, transfers, tasks, AI calls and pending operation confirmations; the final restart refuses new work.
+- A separate native helper replaces the App and an already installed CLI together. Replacement or startup-validation failure restores the previous products. A durable journal supports interrupted-install recovery.
+- Settings offers an idle-safe restore of the previous version. Device state, Keychain identities and authorization records are retained.
+
+## Security and authorization
+
+The built-in release Root verifies the signed update target, exact artifact size and SHA-256, component/platform and monotonic release sequence. Device scope, read/write permission, one-use confirmation, the 3-hour default, expiry and revocation are unchanged.
+
+## Upgrade
+
+Beta 13 and earlier need one manual DMG upgrade to gain the update checker. Finish GUI tasks, quit and replace Keelmesh.app; retain Application Support and Keychain. From Beta 14, use Settings → Software updates. No endpoint reinstall is needed.
+
+## Known limitations
+
+macOS 12+ universal Beta; ad-hoc signed, not Apple-notarized. In-app replacement requires write access to the existing application and CLI locations. A live hung candidate is never force-killed; close it before recovery. Windows Ops GUI is not released; Ubuntu 24.04 x64 remains a separate testing preview.
+
+# Keelmesh Beta 14
+
+0.12.37-beta.14-updater · 2026-10-16 · Beta
+
+软件内检查更新，空闲安装与失败回滚。
+
+- 设置新增“软件更新”：解锁后及每 6 小时自动检查；发现经过签名的新版本时提示。
+- 下载与验证在后台进行。终端、传输、任务、AI 调用和待确认操作结束后才安装；最终重启阶段由程序阻止新操作进入。
+- 独立原生辅助进程一起替换 App 与已安装的 CLI；替换或启动验证失败时恢复上一版本。保存事务记录以恢复中断的安装。
+- 可在设置中等待空闲后恢复上一版本。设备配置、钥匙串身份和授权记录均保留。
+
+## 安全与授权
+
+内置发布公钥验证更新目标、完整安装包大小与 SHA-256、组件与平台，以及单调递增的发布序号。设备范围、读写权限、逐次确认、默认 3 小时、到期和撤销规则不变。
+
+## 升级
+
+Beta 13 及更早版本需手动升级一次 DMG 才能获得检查更新功能：结束 GUI 任务并退出，替换 Keelmesh.app，保留 Application Support 与钥匙串。Beta 14 起可用“设置 → 软件更新”。无需重装被控端。
+
+## 已知限制
+
+macOS 12+ 通用 Beta，临时签名，尚未 Apple 公证。软件内替换需要有权写入已有 App 与 CLI 位置；遇到仍在运行的卡死候选程序不会强杀，需先关闭再恢复。Windows Ops 图形管理端尚未发布；Ubuntu 24.04 x64 仍是单独测试版。
+
+---
+
 ## 0.12.37-beta.13-workspace-lifecycle — 2026-10-16
 
 On-demand device connections and safe idle release.
