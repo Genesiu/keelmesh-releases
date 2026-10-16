@@ -1,5 +1,12 @@
 # Keelark downloads
 
+## VPN preview · Windows x64
+
+[Keelark VPN 0.1.9 RC1](https://github.com/Genesiu/keelmesh-releases/releases/tag/vpn-v0.1.9-rc1) provides the original accepted Windows installer and ZIP, with SHA-256 and detached release-root signatures. The embedded installer retains the legacy Keelmesh name. Invitation, administrator approval and signed device network policy are required; downloading does not grant access. This is an unsigned Windows preview with limited Server 2019 pilot acceptance, not a stable release. macOS/Linux public installers are not included. Ops and VPN use separate release versions.
+
+[VPN information](https://keelmesh.com/vpn/) · [All products](https://keelmesh.com/products/)
+
+
 Official Beta downloads and release notes for Keelark Ops (formerly Keelmesh).
 
 - [Website](https://keelmesh.com/) · [中文官网](https://keelmesh.com/zh/)

@@ -1,5 +1,14 @@
 # Changelog
 
+## VPN 0.1.9 RC1 public preview — 2026-10-16
+
+- Publish original accepted Windows x64 RC1 Setup and ZIP without changing their bytes.
+- Include installation guides, hashes and detached release-root signatures; retain legacy embedded Keelmesh naming.
+- Require administrator-issued device invitations, fingerprint approval and signed network policies.
+- Keep Ops releases and AI grants independent. No macOS/Linux public installer, IPsec implementation or public SDK is included.
+- Authenticode, complete human UAC, clean Windows 10/11 install, reboot recovery and independent security review remain open.
+
+
 Public Beta releases. Application source code remains private.
 
 ## 0.12.37-beta.20-keelark
