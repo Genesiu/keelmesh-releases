@@ -2,6 +2,16 @@
 
 ## Keelark Access · 安全接入
 
+[Linux client Preview 3](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-linux-v0.1.10-preview.3) adds **Ubuntu 22.04 x64 desktop** and **x64 / ARM64 CLI and background service** clients. Install the desktop DEB together with the matching CLI DEB. ARM64 is cross-built; native acceptance is pending. Ubuntu 24.04 desktop is not supported by this package. [Linux installation guide](README.linux-client.md).
+
+| Linux client package | Purpose |
+|---|---|
+| `Keelark-Access-*-Linux-amd64-desktop.deb` | Ubuntu 22.04 x64 desktop GUI; requires the matching CLI package and normal OS administrator authorization. |
+| `Keelark-Access-*-Linux-{amd64,arm64}-client.deb` | CLI / background service for systemd Linux. Invitation, fingerprint approval and signed network permission are required. |
+| `Keelark-Access-*-Linux-{amd64,arm64}-client.tar.gz` | CLI kit with fixed-path install and shared-file rollback for installations not managed by dpkg. |
+
+Client upgrades preserve local identities and running per-profile managers. Profile removal is explicit and ownership-checked. Preview 3 is a Linux client release; macOS, Windows and Linux servers remain Preview 2 below.
+
 [Keelark Access 0.1.10 Preview 2](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.1.10-preview.2) is the renamed Keelark VPN product. It connects verified devices to administrator-approved private services using required hybrid post-quantum encryption and signed per-device network permissions. Existing identities, profiles, service IDs, bundle ID and CLI commands remain compatible.
 
 | Access package | Purpose |
@@ -22,7 +32,7 @@ Official Beta downloads and release notes for Keelark Ops (formerly Keelmesh).
 - [Latest Beta downloads](https://github.com/Genesiu/keelmesh-releases/releases)
 - [Release history](https://keelmesh.com/changelog/) · [中文更新日志](https://keelmesh.com/zh/changelog/)
 
-This repository contains documentation and downloadable binaries. The application source repository is private. GitHub automatically offers “Source code” ZIP/tar archives of **this documentation repository**; they contain README and CHANGELOG, not Keelmesh application source.
+This repository contains documentation and downloadable binaries. The application source repository is private. GitHub automatically offers “Source code” ZIP/tar archives of **this documentation repository**; they contain public documentation, not Keelark application source.
 
 ## Which asset should I download?
 

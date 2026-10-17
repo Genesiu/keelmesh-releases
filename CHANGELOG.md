@@ -1,5 +1,13 @@
 # Changelog
 
+## Access Linux client Preview 3 — 2026-10-17
+
+- Add Ubuntu 22.04 x64 desktop and Linux x64 / ARM64 CLI and service packages, with separate DEB and tar.gz downloads.
+- Keep identities local, require administrator invitation / fingerprint approval / signed network grant, and install via a fixed OS-authorized helper.
+- Preserve identities and active service PIDs through shared-file upgrades and rollback; refuse package removal until installed client connections are explicitly retired.
+- Validate native Ubuntu 22.04 x64 enrollment, hybrid encrypted traffic, service restart recovery, other-user rejection, tampered grants, package upgrades/rollback and GUI startup. ARM64 native acceptance and full desktop authentication matrix remain open.
+- Publish release-root signatures and exact hashes. Update six-language website and guides. Source remains private; Ops Beta 20, AI permissions and existing Mac/Windows releases are unchanged.
+
 ## Access 0.1.10 Preview 2 — 2026-10-17
 
 - Rename Keelark VPN to **Keelark Access / 安全接入** across the app, tray, installers, shortcuts, packages, website and download guides.
