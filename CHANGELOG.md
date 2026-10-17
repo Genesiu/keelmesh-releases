@@ -1,5 +1,14 @@
 # Changelog
 
+## VPN 0.1.10 Preview 1 — 2026-10-17
+
+- Rename software, installers and shortcuts to Keelark VPN, preserving existing identities/configuration.
+- Add macOS universal DMG/ZIP and Linux x64/ARM64 server kits alongside Windows x64 Setup/ZIP.
+- Add guarded Linux installation, explicit gateway provisioning and rollback, and Windows app-file transaction backups.
+- Validate Apple Silicon package/app/protocol, Server 2019 client update and Linux x64 installation/gateway/update/rollback. Native Intel/ARM64, clean Windows 10/11, formal signing and full production acceptance remain open.
+- Keep required hybrid encryption, invitation/approval/signed network policy, private source and separate Ops AI grants.
+
+
 ## VPN 0.1.9 RC1 public preview — 2026-10-16
 
 - Publish original accepted Windows x64 RC1 Setup and ZIP without changing their bytes.

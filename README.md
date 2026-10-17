@@ -1,11 +1,12 @@
 # Keelark downloads
 
-## VPN preview · Windows x64
+## VPN preview · Windows, macOS and Linux
 
-[Keelark VPN 0.1.9 RC1](https://github.com/Genesiu/keelmesh-releases/releases/tag/vpn-v0.1.9-rc1) provides the original accepted Windows installer and ZIP, with SHA-256 and detached release-root signatures. The embedded installer retains the legacy Keelmesh name. Invitation, administrator approval and signed device network policy are required; downloading does not grant access. This is an unsigned Windows preview with limited Server 2019 pilot acceptance, not a stable release. macOS/Linux public installers are not included. Ops and VPN use separate release versions.
+[Keelark VPN 0.1.10 Preview 1](https://github.com/Genesiu/keelmesh-releases/releases/tag/vpn-v0.1.10-preview.1) provides Windows x64 Setup/ZIP, macOS 12+ universal DMG/ZIP, and Linux x64/ARM64 server kits. Software and installers use Keelark VPN; existing identities and configurations remain compatible. Each package has SHA-256 and an independent release-root signature. Invitation, fingerprint approval and signed network policy are required. macOS signing/notarization, Authenticode, native Intel/ARM64 and full clean-OS acceptance remain incomplete; see the release notes.
 
-[VPN information](https://keelmesh.com/vpn/) · [All products](https://keelmesh.com/products/)
+[VPN downloads and platform guides](https://keelmesh.com/vpn/) · [中文下载](https://keelmesh.com/zh/vpn/) · [All products](https://keelmesh.com/products/)
 
+Ops and VPN have separate versions and permissions. This release does not change Ops Beta 20 or its AI grants.
 
 Official Beta downloads and release notes for Keelark Ops (formerly Keelmesh).
 
