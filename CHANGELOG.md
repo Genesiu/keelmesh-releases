@@ -1,5 +1,13 @@
 # Changelog
 
+## Access 0.1.10 Preview 2 — 2026-10-17
+
+- Rename Keelark VPN to **Keelark Access / 安全接入** across the app, tray, installers, shortcuts, packages, website and download guides.
+- Retain identity/configuration/key namespaces, service IDs, bundle ID, Windows uninstall identity and CLI compatibility. Keep previous releases available for rollback.
+- Verify previous VPN release → Access upgrade and rollback on Apple Silicon/Linux x64, and Windows Server 2019 client replacement with unchanged configuration and background service PIDs.
+- Continue existing release-root component sequences. Preserve required hybrid encryption, signed network policy and separate Ops AI grants.
+- Add /access/ product pages in six languages; preserve /vpn/ links. Core application source remains private. Existing preview signing/native/clean-OS gates remain open.
+
 ## VPN 0.1.10 Preview 1 — 2026-10-17
 
 - Rename software, installers and shortcuts to Keelark VPN, preserving existing identities/configuration.

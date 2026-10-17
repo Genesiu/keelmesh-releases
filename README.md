@@ -1,12 +1,20 @@
 # Keelark downloads
 
-## VPN preview · Windows, macOS and Linux
+## Keelark Access · 安全接入
 
-[Keelark VPN 0.1.10 Preview 1](https://github.com/Genesiu/keelmesh-releases/releases/tag/vpn-v0.1.10-preview.1) provides Windows x64 Setup/ZIP, macOS 12+ universal DMG/ZIP, and Linux x64/ARM64 server kits. Software and installers use Keelark VPN; existing identities and configurations remain compatible. Each package has SHA-256 and an independent release-root signature. Invitation, fingerprint approval and signed network policy are required. macOS signing/notarization, Authenticode, native Intel/ARM64 and full clean-OS acceptance remain incomplete; see the release notes.
+[Keelark Access 0.1.10 Preview 2](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.1.10-preview.2) is the renamed Keelark VPN product. It connects verified devices to administrator-approved private services using required hybrid post-quantum encryption and signed per-device network permissions. Existing identities, profiles, service IDs, bundle ID and CLI commands remain compatible.
 
-[VPN downloads and platform guides](https://keelmesh.com/vpn/) · [中文下载](https://keelmesh.com/zh/vpn/) · [All products](https://keelmesh.com/products/)
+| Access package | Purpose |
+|---|---|
+| `Keelark-Access-*-Windows-amd64-Setup.exe` | Windows x64 installation wizard; retains the existing install/uninstall identity and background services. |
+| `Keelark-Access-*-Windows-amd64.zip` | Complete Windows client; extract all files and run Start-Keelark-Access.cmd. |
+| `Keelark-Access-*-macOS-universal.dmg` / `.zip` | macOS 12+ client for Apple Silicon and Intel; keep the old app outside Applications for rollback. |
+| `Keelark-Access-*-Linux-{amd64,arm64}-server.tar.gz` | Linux secure-access gateway kit; install-server.py verifies the kit and supports retained-image rollback. Existing CLI/install paths remain compatible. |
+| `*.manifest.json` + `*.manifest.sig`, `SHA256SUMS` | Independent release-root signatures and complete artifact hashes. These do not replace OS code signing. |
 
-Ops and VPN have separate versions and permissions. This release does not change Ops Beta 20 or its AI grants.
+[Access downloads and platform guides](https://keelmesh.com/access/) · [中文：安全接入](https://keelmesh.com/zh/access/) · [All products](https://keelmesh.com/products/)
+
+Invitation, device fingerprint approval and signed network policy are required; downloads grant no access. This remains a preview with formal OS signing and broader clean/native-machine acceptance incomplete. Ops and Access have separate versions and permissions. Ops Beta 20 and its AI authorization rules are unchanged. Earlier VPN-named releases and links remain available for compatibility and rollback.
 
 Official Beta downloads and release notes for Keelark Ops (formerly Keelmesh).
 
@@ -38,7 +46,7 @@ Beta 16 adds Settings → Software updates: automatic checks after unlock and ev
 
 ## Platforms
 
-The current public Ops management console is the macOS 12+ universal Beta. A separate Ubuntu 24.04 x64 management preview exists in development but is not published as this Beta. A Windows Ops GUI has not been released. Linux, macOS and Windows **Agents** are remote endpoints, not management consoles. Keelark Tunnel/VPN is a separate product preview.
+The current public Ops management console is the macOS 12+ universal Beta. A separate Ubuntu 24.04 x64 management preview exists in development but is not published as this Beta. A Windows Ops GUI has not been released. Linux, macOS and Windows **Agents** are remote endpoints, not management consoles. Keelark Access (formerly Keelark VPN) is a separate product preview.
 
 This Beta is ad-hoc signed, **not Apple-notarized**, and does not claim completed independent security certification. In-app replacement requires write access to the existing product locations.
 
