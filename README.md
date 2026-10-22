@@ -1,5 +1,11 @@
 # Keelark downloads
 
+## Current Access release · 0.2.2 Preview 3
++
++[Download macOS, Windows and Linux](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3) · [Website](https://keelmesh.com/access/)
+
+Automatic signed resource catalogs after approval and resource/policy changes; actionable errors. Upgrade both the gateway and management service to enable automatic publication. Existing connections, identities and signed grants are preserved. macOS Apple Silicon, Windows Server 2019 x64 and Ubuntu 22.04 x64 tested; Linux ARM64 is cross-built. Preview: OS platform signing and wider compatibility testing remain pending. Source stays private. GitHub-generated source archives contain download-repository documents, not product code.
+
 ## Keelark Access · 安全接入
 
 [Linux client Preview 3](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-linux-v0.1.10-preview.3) adds **Ubuntu 22.04 x64 desktop** and **x64 / ARM64 CLI and background service** clients. Install the desktop DEB together with the matching CLI DEB. ARM64 is cross-built; native acceptance is pending. Ubuntu 24.04 desktop is not supported by this package. [Linux installation guide](README.linux-client.md).
