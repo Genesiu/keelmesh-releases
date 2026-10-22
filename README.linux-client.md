@@ -1,25 +1,25 @@
 # Keelark Access · Linux client preview
 
-Version: 0.1.10-preview.3-linux-20261017. Proprietary binaries; source is not published.
+Version: 0.2.2-preview.3. Proprietary binaries; source is not published.
 
 ## Supported systems
 
 - Desktop: Ubuntu 22.04 x64, GTK 3 and WebKitGTK 4.0. A normal desktop session with a polkit authentication agent is required. Ubuntu 24.04 desktop / ARM64 desktop are not yet supported by this package.
 - CLI/service: systemd Linux x64 or ARM64, Python 3.8+, iproute2, TUN and permission to create network devices. Validated on Ubuntu 22.04 x64. ARM64 is cross-built; native ARM64 acceptance remains pending.
-- macOS and Windows continue to use Preview 2; this release adds Linux clients and does not replace their packages. Existing Linux server packages remain available separately.
+- This 0.2.2 Preview 3 release includes matching macOS, Windows and Linux clients and separate Linux server kits. Existing identities and grants remain compatible; upgrade each existing profile manager separately when needed.
 
 ## Install
 
 Verify the release signatures and SHA256SUMS before installing. Download the package for your architecture from the official release. On Ubuntu / Debian:
 
 ```sh
-sudo apt install ./Keelark-Access-0.1.10-preview.3-linux-20261017-Linux-amd64-client.deb
+sudo apt install ./Keelark-Access-0.2.2-preview.3-Linux-amd64-client.deb
 ```
 
 For the desktop also install the matching desktop package:
 
 ```sh
-sudo apt install ./Keelark-Access-0.1.10-preview.3-linux-20261017-Linux-amd64-desktop.deb
+sudo apt install ./Keelark-Access-0.2.2-preview.3-Linux-amd64-desktop.deb
 keelark-access-desktop
 ```
 
@@ -77,3 +77,9 @@ Contact: keelmesh@genesiu.com
 桌面预览支持 Ubuntu 22.04 x64，命令行提供 x64 / ARM64 包。ARM64 尚待真机验收，Ubuntu 24.04 桌面暂不支持。先用系统包管理器安装对应 client.deb，桌面环境再装 desktop.deb。普通用户通过 `keelark-access join` 使用本地私密邀请文件，管理员核对指纹并批准后执行 `refresh`，再用 `sudo keelark-access install 连接名` 安装。普通 `up / down / status / list` 不需要管理员权限。没有默认邀请码、密码或网络权限。
 
 身份在本地生成并保留；接入授权必须由管理员签名。软件升级不重启已安装的连接服务，移除连接需明确执行 `sudo keelark-access remove 连接名`，仅断开所选连接。安装包为预览版，尚未完成全发行版桌面验证。
+
+## 0.2.2 Preview 3
+
+Includes signed resource directories and `keelark-access resources PROFILE`. Ubuntu 22.04 x64 network accepted; desktop startup accepted. ARM64 is cross-built. Automatic Linux desktop updating is not included; use the matching signed package.
+
+Resource catalogs are automatically published after approval and policy/resource updates on a Preview 3 server. The client still enforces the currently signed network grant. Existing profile managers must be upgraded separately; installing a shared CLI package does not restart them.
