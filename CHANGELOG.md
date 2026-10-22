@@ -1,5 +1,13 @@
 # Changelog
 
+## Access 0.2.2 Preview 3 — 2026-10-22
++
++- Publish resource catalogs automatically after approval and resource/policy changes; reconcile at startup and retry every 15 seconds.
++- macOS, Windows and Linux signed-directory support; actionable missing catalog, authorization, network and verification errors.
++- Preserve identity, Owner binding, current signed scope, expiry and revocation. Catalogs cannot grant additional access. Ops AI controls unchanged.
++- GUI sequence 21 / runtime sequence 9; 11 signed binary packages after native Mac, Windows Server 2019 x64 and Ubuntu 22.04 x64 acceptance. ARM64 cross-built; formal OS signing remains pending.
++- [Downloads and detailed acceptance](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3). Application source remains private; retain previous releases for rollback.
+
 ## Access Linux client Preview 3 — 2026-10-17
 
 - Add Ubuntu 22.04 x64 desktop and Linux x64 / ARM64 CLI and service packages, with separate DEB and tar.gz downloads.
