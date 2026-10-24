@@ -1,85 +1,11 @@
-# Keelark Access · Linux client preview
+# Keelark Access 0.2.3-preview.2 for Linux
 
-Version: 0.2.2-preview.3. Proprietary binaries; source is not published.
+Ubuntu 22.04 x64 desktop: install the matching client and desktop DEB packages together with sudo dpkg -i. GTK3, WebKitGTK 4.0 and iproute2 are required. Ubuntu 24.04 desktop is not supported by this build.
 
-## Supported systems
+CLI / background service: amd64 and cross-built arm64 DEB or tar kits. ARM64 native acceptance remains pending. The route page is available in the desktop GUI, not a new headless CLI command.
 
-- Desktop: Ubuntu 22.04 x64, GTK 3 and WebKitGTK 4.0. A normal desktop session with a polkit authentication agent is required. Ubuntu 24.04 desktop / ARM64 desktop are not yet supported by this package.
-- CLI/service: systemd Linux x64 or ARM64, Python 3.8+, iproute2, TUN and permission to create network devices. Validated on Ubuntu 22.04 x64. ARM64 is cross-built; native ARM64 acceptance remains pending.
-- This 0.2.2 Preview 3 release includes matching macOS, Windows and Linux clients and separate Linux server kits. Existing identities and grants remain compatible; upgrade each existing profile manager separately when needed.
+All resources → Routes reads IPv4/IPv6 OS routes, names known tunnel interfaces and can query actual IP egress. Subnet overlaps are red, but do not necessarily imply failure. Unknown interfaces are not guessed; configuration entries do not claim installed routes. Window unlock is required and locking clears route data. Diagnostics never changes routes or starts a tunnel.
 
-## Install
+Packages retain the accepted Preview 3 network core. Existing profiles, identities, signed grants and running per-profile services are retained. CLI tar installations support shared-file rollback. No program rollback restores revoked grants. Gateways remain 0.2.2-preview.3 and require no update for route diagnostics.
 
-Verify the release signatures and SHA256SUMS before installing. Download the package for your architecture from the official release. On Ubuntu / Debian:
-
-```sh
-sudo apt install ./Keelark-Access-0.2.2-preview.3-Linux-amd64-client.deb
-```
-
-For the desktop also install the matching desktop package:
-
-```sh
-sudo apt install ./Keelark-Access-0.2.2-preview.3-Linux-amd64-desktop.deb
-keelark-access-desktop
-```
-
-The CLI tar.gz includes a fixed-path installer for systems without dpkg. Extract into a new directory, verify the signed archive, then run `sudo python3 install-client.py install`. It installs shared files only and does not start a connection. `sudo python3 install-client.py rollback` restores the previous shared files. Use .deb upgrades for a dpkg-managed installation; do not mix installation methods.
-
-## Headless enrollment and connection
-
-The administrator issues a separate invitation and verifies the device fingerprint. Invitations and private keys must not be pasted into AI chats or command arguments. As your normal login user, put the invitation in a local file readable only by you:
-
-```sh
-umask 077
-cat > "$HOME/access-invitation.txt"
-# Paste the invitation locally, then press Ctrl+D.
-keelark-access join --profile work --invite-file "$HOME/access-invitation.txt"
-```
-
-Send only the public fingerprint to your administrator. While approval is pending no network profile is installed. After the administrator approves signed device network permissions:
-
-```sh
-keelark-access refresh --profile work
-sudo keelark-access install work
-keelark-access status work
-keelark-access list
-keelark-access down work
-keelark-access up work
-```
-
-Local administrator authentication is required for installation/removal. Normal connection control uses the owning user's authenticated local socket. The installed service starts at boot and reconnects with the same local identity; no SSH keys are required. Signed network permissions and their expiry remain enforced.
-
-## Desktop
-
-Open Keelark Access from Applications. Unlock your local identity, paste the administrator's invitation locally, wait for approval, and install the approved connection using the OS authorization prompt. Closing the interface leaves installed connections running. This preview has no Linux tray icon. A desktop login screen / polkit interaction on every Linux distribution has not been certified.
-
-## Identity, upgrades and removal
-
-Legacy storage and service identifiers intentionally remain `KeelmeshVPN` / `keelmesh-vpn` for compatibility. Client identities stay in `~/.config/KeelmeshVPN/enrollment/PROFILE/identity` with private permissions. Do not delete or share them. A package upgrade does not recreate identities, change signed grants or restart running profile managers. Active profiles use an isolated installed binary; updating their runtime requires an explicit profile maintenance step.
-
-```sh
-sudo keelark-access remove work
-sudo apt remove keelark-access-desktop keelark-access-cli
-```
-
-Removal disconnects only the selected profile, archives its protected service configuration, and preserves the user's identity. The CLI .deb refuses removal while client profiles remain installed. Preview packages have release-root signatures but no distribution repository / automatic package update channel. Reinstall the previous signed package to roll back a .deb update.
-
-## Security scope
-
-Transport: X25519 + ML-KEM-768; identity: Ed25519 + ML-DSA-65. Access is a separate product from Ops. Ops AI scope, read/write rules, default three-hour expiry and revocation are not changed by installing Access. Access enrollment is a signed network grant, not an Ops AI grant.
-
-Builds strip debug symbols and local paths; the UI is minified. No dedicated code encryption, obfuscation or anti-debug protection is included. Release signatures detect package changes; they do not prevent reverse engineering.
-
-Contact: keelmesh@genesiu.com
-
-## 中文快速说明
-
-桌面预览支持 Ubuntu 22.04 x64，命令行提供 x64 / ARM64 包。ARM64 尚待真机验收，Ubuntu 24.04 桌面暂不支持。先用系统包管理器安装对应 client.deb，桌面环境再装 desktop.deb。普通用户通过 `keelark-access join` 使用本地私密邀请文件，管理员核对指纹并批准后执行 `refresh`，再用 `sudo keelark-access install 连接名` 安装。普通 `up / down / status / list` 不需要管理员权限。没有默认邀请码、密码或网络权限。
-
-身份在本地生成并保留；接入授权必须由管理员签名。软件升级不重启已安装的连接服务，移除连接需明确执行 `sudo keelark-access remove 连接名`，仅断开所选连接。安装包为预览版，尚未完成全发行版桌面验证。
-
-## 0.2.2 Preview 3
-
-Includes signed resource directories and `keelark-access resources PROFILE`. Ubuntu 22.04 x64 network accepted; desktop startup accepted. ARM64 is cross-built. Automatic Linux desktop updating is not included; use the matching signed package.
-
-Resource catalogs are automatically published after approval and policy/resource updates on a Preview 3 server. The client still enforces the currently signed network grant. Existing profile managers must be upgraded separately; installing a shared CLI package does not restart them.
+Native acceptance: Ubuntu 22.04 x64 non-root GTK startup, matching DEB upgrade, authenticated live tunnel/route attribution, resources, signed authorization, restart retention and revocation denial. Full interactive polkit/browser-open and all distribution versions are not claimed.
