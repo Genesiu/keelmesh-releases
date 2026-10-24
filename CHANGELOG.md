@@ -1,12 +1,21 @@
 # Changelog
 
+## Access 0.2.3 Preview 2 — 2026-10-24
+
+- Add All resources → Routes: OS routing tables, tunnel names/interfaces, exact IP egress and red subnet-overlap descriptions. Unknown origins remain explicit. Local read-only diagnostics require unlock and never start a tunnel or change routes.
+- Publish signed Windows x64 Setup/ZIP, macOS Universal and separate macOS 26+ arm64 OpenVPN DMG/ZIP, Ubuntu 22.04 x64 desktop and x64/ARM64 CLI packages. ARM64/Intel native and full clean-OS interaction matrices remain pending.
+- Accept native Windows Server 2019 x64 upgrade and authenticated route/HTTP checks; Ubuntu 22.04 x64 matching-DEB upgrade, non-root GUI startup, hybrid tunnel/resources/revocation; existing Mac live route page. Preserve 9 Windows, 8 Linux and 14 Mac configuration/identity files and existing network service processes.
+- Reuse accepted Preview 3 / sequence 9 standard network core. Gateway/server remains 0.2.2-preview.3. Only the Windows GUI signed update feed advances to sequence 23; macOS GUI and all runtime feeds remain unchanged to preserve OpenVPN flavor compatibility.
+- OpenVPN remains a limited separate macOS 26+ Apple Silicon preview using classical TLS. Windows/Linux/Intel OpenVPN engines are not released. Product source remains private; MPL kit includes only required third-party engine/adapter sources. OS code-signing gates remain open.
+- [Downloads](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.2) · [中文验收和回滚说明](https://keelmesh.com/updates/access/0.2.3-preview.2/RELEASE_NOTES.zh.md).
+
 ## Access 0.2.2 Preview 3 — 2026-10-22
-+
-+- Publish resource catalogs automatically after approval and resource/policy changes; reconcile at startup and retry every 15 seconds.
-+- macOS, Windows and Linux signed-directory support; actionable missing catalog, authorization, network and verification errors.
-+- Preserve identity, Owner binding, current signed scope, expiry and revocation. Catalogs cannot grant additional access. Ops AI controls unchanged.
-+- GUI sequence 21 / runtime sequence 9; 11 signed binary packages after native Mac, Windows Server 2019 x64 and Ubuntu 22.04 x64 acceptance. ARM64 cross-built; formal OS signing remains pending.
-+- [Downloads and detailed acceptance](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3). Application source remains private; retain previous releases for rollback.
+
+- Publish resource catalogs automatically after approval and resource/policy changes; reconcile at startup and retry every 15 seconds.
+- macOS, Windows and Linux signed-directory support; actionable missing catalog, authorization, network and verification errors.
+- Preserve identity, Owner binding, current signed scope, expiry and revocation. Catalogs cannot grant additional access. Ops AI controls unchanged.
+- GUI sequence 21 / runtime sequence 9; 11 signed binary packages after native Mac, Windows Server 2019 x64 and Ubuntu 22.04 x64 acceptance. ARM64 cross-built; formal OS signing remains pending.
+- [Downloads and detailed acceptance](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3). Application source remains private; retain previous releases for rollback.
 
 ## Access Linux client Preview 3 — 2026-10-17
 
