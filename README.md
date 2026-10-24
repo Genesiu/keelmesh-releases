@@ -6,35 +6,36 @@ This repository distributes binaries and documentation. **Keelark product source
 
 ## Keelark Access · 安全接入
 
-### Cross-platform downloads · 0.2.2 Preview 3
+### 0.2.3 Preview 2 · Routes on macOS, Windows and Linux
 
-[macOS Universal, Windows x64 and Linux downloads](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3) · [Platform requirements and guides](https://keelmesh.com/access/) · [中文安装说明](https://keelmesh.com/zh/access/)
+[Downloads and release notes](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.2) · [Platform guides](https://keelmesh.com/access/) · [中文安装说明](https://keelmesh.com/zh/access/) · [Linux guide](README.linux-client.md)
 
-Automatic signed resource catalogs after device approval and resource/policy changes. Upgrade the gateway and management service to enable automatic publication. Existing connections, identities and signed grants are retained. macOS Apple Silicon, Windows Server 2019 x64 and Ubuntu 22.04 x64 were tested; Linux ARM64 is cross-built, with native acceptance pending. These platform downloads and their automatic-update channels continue at Preview 3.
+All resources → Routes shows OS routes, known tunnel origins/interfaces, overlapping subnets and actual IP egress. Diagnostics require window unlock, read local state on demand and never start a tunnel or change routes. Red means overlap; unknown route origins stay unknown. Automatic signed resource catalogs remain supported by the native connection protocol. Routes do not grant network access.
 
-### Separate OpenVPN preview · 0.2.3 Preview 1
+Windows x64, macOS Universal 12+ and Ubuntu 22.04 x64 desktop include the route page. Linux ARM64 CLI is cross-built, without an ARM64 desktop or native acceptance claim. Matching Linux client and desktop DEBs must be installed together. Native acceptance covers this Mac, Windows Server 2019 x64 and Ubuntu 22.04 x64; clean Windows 10/11, macOS Intel and the full Linux polkit/browser interaction matrix remain pending.
 
-**macOS 26 or later, Apple Silicon only. This is not a Universal package.**
+Existing connections, identities, signed grants and running per-profile services are retained. Standard packages reuse the accepted Preview 3 / sequence 9 network core. **Linux gateway/server packages remain at 0.2.2-preview.3; no gateway update is needed for route diagnostics.** Windows GUI update availability advances to sequence 23 after acceptance; installation remains explicit and waits for active work. macOS GUI automatic updates remain unchanged this batch to avoid replacing the separate OpenVPN flavor. Linux uses manual matching DEBs.
 
-[OpenVPN preview downloads and release notes](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.1) · [中文支持范围](https://keelmesh.com/updates/access/0.2.3-preview.1/RELEASE_NOTES.zh.md)
+### Choose the correct Mac package
 
-Import a self-contained certificate-based Tunnelblick `.ovpn` profile and connect from Keelark without running Tunnelblick. TUN, UDP/TCP-client and explicit IPv4 split routes are supported. Scripts, plugins, external key files, TAP, full-tunnel and interactive password/MFA authentication are not supported by this preview. OpenVPN uses classical TLS, separate from Keelark native hybrid post-quantum connections. Native signed resource catalogs do not apply to OpenVPN profiles. Existing connections, identities and authorization are retained.
-
-Windows, Linux, Intel and older macOS OpenVPN builds have not been released. This optional download does not advance the cross-platform automatic-update channels. macOS applications are ad-hoc signed; Apple Developer ID signing and notarization are not completed. Preview use and manual opt-in are required.
-
-| Access asset | Purpose |
+| Download | Requirements and protocols |
 |---|---|
-| `*-macOS-universal.dmg` / `.zip` | Preview 3 macOS client for Apple Silicon and Intel; see the platform guide. |
-| `*-macOS26-arm64.dmg` / `.zip` | Separate Preview 1 OpenVPN client for macOS 26+ Apple Silicon only. |
+| `*-macOS-universal.dmg` / `.zip` | macOS 12+, Apple Silicon and Intel; native hybrid protocol, WireGuard compatibility and Routes. **No OpenVPN engine.** |
+| `*-macOS26-arm64.dmg` / `.zip` | macOS 26+, Apple Silicon only; adds the limited OpenVPN preview and Routes. Keep this flavor when upgrading an existing OpenVPN installation. |
+
+OpenVPN imports self-contained certificate-based Tunnelblick `.ovpn` profiles. TUN, UDP/TCP-client and explicit IPv4 split routes are supported. Scripts, plugins, external key files, TAP, full-tunnel and interactive password/MFA are not supported by this preview. OpenVPN uses classical TLS, separate from Keelark native hybrid post-quantum connections. Native signed resource catalogs do not apply to OpenVPN profiles. Windows, Linux and Intel OpenVPN engines are not released.
+
+| Other Access asset | Purpose |
+|---|---|
 | `*-Windows-amd64-Setup.exe` | Windows x64 installation wizard. |
 | `*-Windows-amd64.zip` | Complete Windows client; extract all files and run the included launcher. |
-| `*-Linux-*-desktop.deb` | Ubuntu 22.04 x64 desktop GUI; install the matching client package. |
-| `*-Linux-*-client.deb` / `*-client.tar.gz` | CLI and background-service client. |
-| `*-Linux-*-server.tar.gz` | Linux gateway kit; includes installation and rollback instructions. |
+| `*-Linux-amd64-desktop.deb` | Ubuntu 22.04 x64 desktop GUI; install the matching client DEB. |
+| `*-Linux-*-client.deb` / `*-client.tar.gz` | CLI and background-service client; x64 or cross-built ARM64. |
+| [Preview 3 Linux server kits](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3) | Existing Linux gateway, with installation/rollback instructions. |
 | `OPENVPN-SOURCE-MPL.tar.gz` | Required third-party OpenVPN engine and adapter sources, under MPL-2.0. |
-| `*.manifest.json` + `*.manifest.sig`, `SHA256SUMS` | Release-root signatures and full artifact hashes. These do not replace operating-system code signing. |
+| `*.manifest.json` + `*.manifest.sig`, `SHA256SUMS` | Release-root signatures and full hashes. These do not replace OS code signing. |
 
-Native invitations require administrator device approval and signed network permissions. A download does not grant access. Profile removal is explicit; upgrades do not reset identities or signed grants. Earlier releases remain available for compatibility and rollback.
+Preview packages are verified by the established Ed25519 release root. Apple Developer ID/notarization and Windows Authenticode are pending. Do not disable antivirus or certificate verification. Keep the old app for rollback; never restore expired/revoked grants. Upgrades do not reset profile identity. Downloading does not authorize access: native invitations still require administrator approval and signed network permissions.
 
 ## Keelark Ops · Remote operations
 
@@ -54,4 +55,4 @@ Updates retain device pairings, Keychain identities and AI grant device scope, p
 
 ---
 
-产品主体源码不公开。OpenVPN 预览仅适用于 macOS 26 及以上的 Apple 芯片 Mac；旧 Mac、Windows 和 Linux 请继续使用 Preview 3。公开的 MPL 源码包只包含第三方引擎及适配器。安装包下载不代表获得任何设备或网络访问权限。
+产品主体源码不公开。路由页已提供 macOS、Windows x64 和 Ubuntu 22.04 x64 桌面版；Linux ARM64 仅 CLI 交叉构建。OpenVPN 独立版仅适用于 macOS 26+ Apple Silicon。服务器继续使用 Preview 3。公开 MPL 源码包只含第三方引擎及适配器。安装包下载不代表获得设备或网络访问权限。
