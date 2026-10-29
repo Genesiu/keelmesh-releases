@@ -1,5 +1,14 @@
 # Changelog
 
+## Windows Access Preview 11 · 2026-10-29
+
+[Windows Setup](https://keelmesh.com/updates/access/0.2.3-preview.11/Keelark-Access-0.2.3-preview.11-Windows-amd64-Setup.exe) · [Release notes and signatures](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.11) · [All platforms](https://keelmesh.com/access/#availability)
+
+First-time invitation setup checks and recovers its local enrollment listener inside the original administrator authorization, preserving the original identity and request. Installed clients can check/download/install from **Settings → Version and updates**; automatic checks run after unlock and every two hours while visible. Desktop upgrades preserve connections, identities and authorization; existing tunnels continue. Network components update separately and may reconnect that connection.
+
+Windows x64 Preview only; Authenticode and full antivirus coverage remain pending. macOS/Linux downloads are unchanged. Linux server packages remain available by controlled trial application, not public download. Product source remains private.
+
+
 ## Access 0.2.3 Preview 2 — 2026-10-24
 
 - Add All resources → Routes: OS routing tables, tunnel names/interfaces, exact IP egress and red subnet-overlap descriptions. Unknown origins remain explicit. Local read-only diagnostics require unlock and never start a tunnel or change routes.
