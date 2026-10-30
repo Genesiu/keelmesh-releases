@@ -1,17 +1,18 @@
 # Keelark downloads
 
-## Windows Access Preview 11 · 2026-10-29
+## Windows Access Preview 13 · 2026-10-30
 
-[Windows Setup](https://keelmesh.com/updates/access/0.2.3-preview.11/Keelark-Access-0.2.3-preview.11-Windows-amd64-Setup.exe) · [Release notes and signatures](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.11) · [All platforms](https://keelmesh.com/access/#availability)
+[Windows Setup](https://keelmesh.com/updates/access/0.2.3-preview.13/Keelark-Access-0.2.3-preview.13-Windows-amd64-Setup.exe) · [Release notes and signatures](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.13) · [All platforms](https://keelmesh.com/access/#availability)
 
-First-time invitation setup checks and recovers its local enrollment listener inside the original administrator authorization, preserving the original identity and request. Installed clients can check/download/install from **Settings → Version and updates**; automatic checks run after unlock and every two hours while visible. Desktop upgrades preserve connections, identities and authorization; existing tunnels continue. Network components update separately and may reconnect that connection.
+Windows prepares the original isolated identity, system services and Wintun when submitting an invitation. Prepared applications connect after approval without a second installer; offline users resume the original application on reopening and unlocking. Legacy protected service paths remain compatible. Matching servers renew an expired delivery envelope only for the same identity and unchanged valid grant; scope and grant expiry cannot grow.
 
-Windows x64 Preview only; Authenticode and full antivirus coverage remain pending. macOS/Linux downloads are unchanged. Linux server packages remain available by controlled trial application, not public download. Product source remains private.
+Windows Server 2019 actual packet, service restart, legacy identity continuity and overlay-upgrade acceptance passed. Existing connection files, identities and authorization remain; desktop updates preserve existing network service processes. Settings → Version and updates checks after unlock and every two hours while visible. Network component upgrades remain separate and may reconnect.
 
+Windows x64 Preview only. Authenticode, ordinary-user human UAC, clean Windows 10/11 and actual 360 clearance remain pending. macOS/Linux client versions are unchanged. Linux servers remain controlled-trial only; product source stays private.
 
 [Website](https://keelmesh.com/) · [中文官网](https://keelmesh.com/zh/) · [All releases](https://github.com/Genesiu/keelmesh-releases/releases) · [Release history](https://keelmesh.com/changelog/)
 
-This repository distributes binaries and documentation. **Keelark product source remains private.** GitHub's automatic “Source code” archives contain this download repository's documents. The explicitly named OpenVPN MPL source-kit asset contains only the third-party engine and its adapter/build sources, not proprietary product source or user profiles.
+This repository distributes binaries and documentation. **Keelark product source remains private.** GitHub's automatic “Source code” archives contain this download repository's release documentation and automation. The explicitly named OpenVPN MPL source-kit asset contains only the third-party engine and its adapter/build sources, not proprietary product source or user profiles.
 
 ## Keelark Access · 安全接入
 
@@ -40,7 +41,7 @@ OpenVPN imports self-contained certificate-based Tunnelblick `.ovpn` profiles. T
 | `*-Windows-amd64.zip` | Complete Windows client; extract all files and run the included launcher. |
 | `*-Linux-amd64-desktop.deb` | Ubuntu 22.04 x64 desktop GUI; install the matching client DEB. |
 | `*-Linux-*-client.deb` / `*-client.tar.gz` | CLI and background-service client; x64 or cross-built ARM64. |
-| [Preview 3 Linux server kits](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.2-preview.3) | Existing Linux gateway, with installation/rollback instructions. |
+| [Linux server controlled trial](https://keelmesh.com/zh/access/#server-trial) | Public server downloads are paused; request a controlled trial. |
 | `OPENVPN-SOURCE-MPL.tar.gz` | Required third-party OpenVPN engine and adapter sources, under MPL-2.0. |
 | `*.manifest.json` + `*.manifest.sig`, `SHA256SUMS` | Release-root signatures and full hashes. These do not replace OS code signing. |
 
@@ -64,4 +65,4 @@ Updates retain device pairings, Keychain identities and AI grant device scope, p
 
 ---
 
-产品主体源码不公开。路由页已提供 macOS、Windows x64 和 Ubuntu 22.04 x64 桌面版；Linux ARM64 仅 CLI 交叉构建。OpenVPN 独立版仅适用于 macOS 26+ Apple Silicon。服务器继续使用 Preview 3。公开 MPL 源码包只含第三方引擎及适配器。安装包下载不代表获得设备或网络访问权限。
+产品主体源码不公开。路由页已提供 macOS、Windows x64 和 Ubuntu 22.04 x64 桌面版；Linux ARM64 仅 CLI 交叉构建。OpenVPN 独立版仅适用于 macOS 26+ Apple Silicon。服务端仅受控申请试用，配套网关已更新。公开 MPL 源码包只含第三方引擎及适配器。安装包下载不代表获得设备或网络访问权限。
