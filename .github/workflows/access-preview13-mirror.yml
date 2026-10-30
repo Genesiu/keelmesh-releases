@@ -1,0 +1,35 @@
+name: Publish verified Access Preview 13 mirror
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Mirror exact accepted artifacts and publish the draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import pathlib,urllib.request,hashlib,json,subprocess,time
+          expected={'Keelark-Access-0.2.3-preview.13-Windows-amd64.zip.sig': '5c6cae4464278eee9eb527e1e71e1638362c85f3eff91904d1017ed1137ca5de', 'README-preview.md': '750e4c48356eb4a6f68649b41900803977062f0dcebf575f2e15c1347e5e5d76', 'Keelark-Network-0.2.3-preview.13-windows-amd64.exe': 'ee938b9d59841748de14d3eb27954d2d6a63208ed330c8d1159e23993fafa7a5', 'release-public.pem': 'e34a273273bf357982b41c1ac8ee828e6f9a8848fe78c5989a3dc52e8d7891dd', 'Keelark-Access-0.2.3-preview.13-Windows-amd64.zip': '7342945356e628299dd05b3c21be1a1c74f67120fbdeecc9a64a9eb60a5c9cee', 'Keelark-Access-0.2.3-preview.13-Windows-amd64-Setup.exe.manifest.json': 'da786a2b961f8ec0c5c455691adf83f04231854916b61da82ebb99fd2821201d', 'Keelark-Access-0.2.3-preview.13-Windows-amd64-Setup.exe.sig': 'f1885c22067a52618d18ace97f564baacc8d0c180f1b7e7a112bc1f1e9b13b01', 'Keelark-Network-0.2.3-preview.13-windows-amd64.exe.sig': '76b63c693dadb8f9f1e7ff4cdfc4dff6446ec1e82d753195c96affbf8e2ea597', 'manifest.json': '3d3ac49787d6569ee527efa132aa6902148cd222c8b7e15f9e33123797db8f39', 'Keelark-Network-0.2.3-preview.13-windows-amd64.exe.manifest.json': '416e22ef6a7060fda0b3c91a041cbeeec501c690be02fdd154236ee249eb44dd', 'SHA256SUMS': '45043f3f88b8feae427df8257419f3e9f3d83f1ed4c198b10dac820d5b82598f', 'RELEASE_NOTES.zh.md': '5c85e2d5007dd97ab30e60f845e249c771a8504f32d316627e4e926736f239b6', 'Keelark-Access-0.2.3-preview.13-Windows-amd64-Setup.exe': 'b90e07057cce5bae3ecd150198726fb6f5205dd1370cf6ac7210f7df3734c448', 'Keelark-Access-0.2.3-preview.13-Windows-amd64.zip.manifest.json': 'c4bb2bb7c0c8934aaefa19c4172e8fa65c86dfcc205b47498e3925ef08e7dc46'}
+          repo='Genesiu/keelmesh-releases';tag='access-v0.2.3-preview.13'
+          release=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases/428623839']));assert release['draft'] is True and release['tag_name']==tag
+          rid=str(release['id']);assets={a['name']:a for a in release['assets']};stage=pathlib.Path('verified-release');stage.mkdir()
+          for name,want in sorted(expected.items()):
+           req=urllib.request.Request('https://keelmesh.com/updates/access/0.2.3-preview.13/'+name,headers={'User-Agent':'Keelark-Access-Updater/1'})
+           with urllib.request.urlopen(req,timeout=90)as r:
+            assert r.status==200 and r.url.startswith('https://keelmesh.com/updates/access/0.2.3-preview.13/');data=r.read()
+           assert hashlib.sha256(data).hexdigest()==want,name
+           p=stage/name;p.write_bytes(data);old=assets.get(name)
+           if old and old.get('digest')=='sha256:'+want:continue
+           if old:
+            assert old['state']=='starter','refuse replacing uploaded artifact'
+            subprocess.run(['gh','api','-X','DELETE','repos/'+repo+'/releases/assets/'+str(old['id'])],check=True)
+           subprocess.run(['gh','release','upload',tag,'--repo',repo,str(p)],check=True)
+          final=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases/'+rid]));assert final['draft'];assert {a['name']for a in final['assets']}==set(expected)
+          assert all(a.get('digest')=='sha256:'+expected[a['name']]and a['state']=='uploaded'for a in final['assets'])
+          subprocess.run(['gh','release','edit',tag,'--repo',repo,'--draft=false','--prerelease'],check=True)
+          print('Published 14 verified Access Preview 13 assets; product source not included.')
