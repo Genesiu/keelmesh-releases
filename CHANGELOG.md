@@ -1,5 +1,15 @@
 # Changelog
 
+## Windows Access Preview 13 · 2026-10-30
+
+[Windows Setup](https://keelmesh.com/updates/access/0.2.3-preview.13/Keelark-Access-0.2.3-preview.13-Windows-amd64-Setup.exe) · [Release notes and signatures](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.13) · [All platforms](https://keelmesh.com/access/#availability)
+
+Windows prepares the original isolated identity, system services and Wintun when submitting an invitation. Prepared applications connect after approval without a second installer; offline users resume the original application on reopening and unlocking. Legacy protected service paths remain compatible. Matching servers renew an expired delivery envelope only for the same identity and unchanged valid grant; scope and grant expiry cannot grow.
+
+Windows Server 2019 actual packet, service restart, legacy identity continuity and overlay-upgrade acceptance passed. Existing connection files, identities and authorization remain; desktop updates preserve existing network service processes. Settings → Version and updates checks after unlock and every two hours while visible. Network component upgrades remain separate and may reconnect.
+
+Windows x64 Preview only. Authenticode, ordinary-user human UAC, clean Windows 10/11 and actual 360 clearance remain pending. macOS/Linux client versions are unchanged. Linux servers remain controlled-trial only; product source stays private.
+
 ## Windows Access Preview 11 · 2026-10-29
 
 [Windows Setup](https://keelmesh.com/updates/access/0.2.3-preview.11/Keelark-Access-0.2.3-preview.11-Windows-amd64-Setup.exe) · [Release notes and signatures](https://github.com/Genesiu/keelmesh-releases/releases/tag/access-v0.2.3-preview.11) · [All platforms](https://keelmesh.com/access/#availability)
